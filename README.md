@@ -24,8 +24,8 @@ A simple RESTful API for managing your music collection, built with ASP.NET usin
 ### Formats
 | Method | Endpoint| Description|
 |:-|:-|:-|
-| GET    | `/format`     | Get all albums |
-| GET    | `/format/{id}` | Get album by ID   |
-| POST   | `/format`     | Add a new album|
-| PUT    | `/format/{id}` | Update an existing album|
-| DELETE | `/format/{id}` | Delete an album |
+| GET    | `/format`     | Get all formats |
+| GET    | `/format/{id}` | Get format by ID   |
+| POST   | `/format`     | Add a new foramt|
+| PUT    | `/format/{id}` | Update an existing format|
+| DELETE | `/format/{id}` | Delete an format |
