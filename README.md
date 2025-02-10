@@ -28,4 +28,4 @@ A simple RESTful API for managing your music collection, built with ASP.NET usin
 | GET    | `/format/{id}` | Get format by ID   |
 | POST   | `/format`     | Add a new foramt|
 | PUT    | `/format/{id}` | Update an existing format|
-| DELETE | `/format/{id}` | Delete an format |
+| DELETE | `/format/{id}` | Delete a format |
