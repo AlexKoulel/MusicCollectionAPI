@@ -29,3 +29,7 @@ A simple RESTful API for managing your music collection, built with ASP.NET usin
 | POST   | `/format`     | Add a new format|
 | PUT    | `/format/{id}` | Update an existing format|
 | DELETE | `/format/{id}` | Delete a format |
+
+### Frontend Showcase
+There is also a simple frontend option to create entries.
+![Showcase](Assets/APIShowcase.gif)
