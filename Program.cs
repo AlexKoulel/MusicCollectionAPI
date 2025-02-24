@@ -1,10 +1,12 @@
+using Microsoft.EntityFrameworkCore;
 using MusicCollectionAPI.Backend.Data;
 using MusicCollectionAPI.Backend.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("MusicCollectionDB");
-builder.Services.AddSqlite<MusicCollectionContext>(connectionString);
+builder.Services.AddDbContext<MusicCollectionContext>(options =>
+    options.UseSqlServer(connectionString));
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
