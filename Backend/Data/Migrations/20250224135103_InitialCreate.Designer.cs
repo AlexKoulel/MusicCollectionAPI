@@ -2,47 +2,53 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MusicCollectionAPI.Backend.Data;
 
-
 #nullable disable
 
-namespace MusicCollectionAPI.Data.Migrations
+namespace MusicCollectionAPI.Migrations
 {
     [DbContext(typeof(MusicCollectionContext))]
-    [Migration("20250210135204_InitialCreate")]
+    [Migration("20250224135103_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
+            modelBuilder
+                .HasAnnotation("ProductVersion", "9.0.2")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            modelBuilder.Entity("MusicCollectionAPI.Entities.Album", b =>
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("MusicCollectionAPI.Backend.Entities.Album", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Artist")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("FormatId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int>("GenreId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<DateOnly>("ReleaseDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("date");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -53,15 +59,17 @@ namespace MusicCollectionAPI.Data.Migrations
                     b.ToTable("Albums");
                 });
 
-            modelBuilder.Entity("MusicCollectionAPI.Entities.Format", b =>
+            modelBuilder.Entity("MusicCollectionAPI.Backend.Entities.Format", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -90,15 +98,17 @@ namespace MusicCollectionAPI.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("MusicCollectionAPI.Entities.Genre", b =>
+            modelBuilder.Entity("MusicCollectionAPI.Backend.Entities.Genre", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -157,15 +167,15 @@ namespace MusicCollectionAPI.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("MusicCollectionAPI.Entities.Album", b =>
+            modelBuilder.Entity("MusicCollectionAPI.Backend.Entities.Album", b =>
                 {
-                    b.HasOne("MusicCollectionAPI.Entities.Format", "Format")
+                    b.HasOne("MusicCollectionAPI.Backend.Entities.Format", "Format")
                         .WithMany()
                         .HasForeignKey("FormatId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MusicCollectionAPI.Entities.Genre", "Genre")
+                    b.HasOne("MusicCollectionAPI.Backend.Entities.Genre", "Genre")
                         .WithMany()
                         .HasForeignKey("GenreId")
                         .OnDelete(DeleteBehavior.Cascade)

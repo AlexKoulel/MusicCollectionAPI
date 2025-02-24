@@ -1,5 +1,5 @@
 # Music Collection API
-A simple RESTful API for managing your music collection, built with ASP.NET using the Entity Framework and SQLite.
+A simple RESTful API for managing your music collection, built with ASP.NET using the Entity Framework and SQLServer.
 
 ## Endpoints
 
