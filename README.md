@@ -1,6 +1,9 @@
 # Music Collection API
 A simple RESTful API for managing your music collection, built with ASP.NET using the Entity Framework and SQLServer.
 
+## Setup
+- Inside *appsettings.Development.json* make sure you change the value of *Server* in the *MusicCollectionDB* string to name of your server.
+- 
 ## Endpoints
 
 ### Albums
