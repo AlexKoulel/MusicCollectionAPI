@@ -2,6 +2,7 @@
 A simple RESTful API for managing your music collection, built with ASP.NET using Entity Framework and SQL Server.
 
 ## Setup
+### Backend Setup
 1. Clone the repository to your local machine:
    ```bash
    git clone https://github.com/AlexKoulel/MusicCollectionAPI
