@@ -35,7 +35,7 @@ A simple RESTful API for managing your music collection, built with ASP.NET usin
    ```
 5. Once the server is up, open the localhost URL displayed in the terminal.
 6. The page should load in your browser, resembling the following example: 
-![Showcase](Assets/frontend-image.png)
+![Showcase](Assets/frontend.png)
 
 ## Endpoints
 
